@@ -1,0 +1,11 @@
+
+Tarea 1 Hoja Resumen de Introducción 
+
+Conteniendo:
+
+1. Redes neuronales no supervisadas y redes neuronales supervisadas (200 palabras max)
+2. Reinforcement learning (200 palabras max)
+3. Industria 4.0 (200 palabras max)
+
+Lo que les solicito por favor es en sus propias palabras que definan los conceptos indicados en una cuartilla unicamente
+

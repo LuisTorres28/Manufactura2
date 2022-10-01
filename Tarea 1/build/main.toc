@@ -1,0 +1,5 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Desarrollo}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Redes neuronales no supervisadas y redes neuronales supervisadas}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Reinforcment learning}{3}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Industria 4.0}{3}{subsection.1.3}%
