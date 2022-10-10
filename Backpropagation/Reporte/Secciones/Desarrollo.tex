@@ -1,0 +1,172 @@
+Se implemento una red neuronal que consiste en 1 capa de entrada y 1 capa de salida, cada capa contiene
+1 sola neurona, el vector de entrada es de tamaño 2 y la red tiene una topología \textit{fully connected}.
+\begin{figure}[H]
+    \centering
+    \includegraphics{Net_Topology.png}
+    \caption{Topología de la red}
+    \label{fig:NetTopology}
+\end{figure}
+Se realizó el entrenamiento de las 3 redes neuronales con diferentes ordenes dados en el ``dataset'' de
+entrenamiento, diferentes tasas de aprendizaje y diferentes tipos de batch.\\[0.5cm]
+\textbf{Tasas de aprendizaje}:\\
+0.1 - 0.5 - 1 - 2 - 3 - 4 - 5\\[0.5cm]
+\textbf{Tamaños de lote}:\\
+1 - 2 - 4\\[0.5cm]
+
+El tamaño del batch 1 significa entrenamiento en linea, el batch de 4 es el entrenamiento por lote y el
+batch 2 es entrenamiento de medio lote.
+
+\newpage
+\subsection{Resultados}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%                            Orden 1                             %%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Orden 1}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|ll|l|l|l|}
+    \hline
+    \multicolumn{2}{|c|}{\textbf{In}} & \multicolumn{1}{c|}{\textbf{And}} & \multicolumn{1}{c|}{\textbf{Or}} & \multicolumn{1}{c|}{\textbf{Xor}} \\ \hline
+    \multicolumn{1}{|l|}{0}    & 0    & 0                                 & 0                                & 0                                 \\ \hline
+    \multicolumn{1}{|l|}{0}    & 1    & 0                                 & 1                                & 1                                 \\ \hline
+    \multicolumn{1}{|l|}{1}    & 0    & 0                                 & 1                                & 1                                 \\ \hline
+    \multicolumn{1}{|l|}{1}    & 1    & 1                                 & 1                                & 0                                 \\ \hline
+    \end{tabular}
+\end{table}
+El entrenamiento de la red se realizó con los siguientes resultados:
+\begin{table}[H]
+    \begin{tabular}{|l|lllllllll|}
+    \hline
+    \multicolumn{1}{|c|}{\multirow{3}{*}{\textbf{$\eta$}}} & \multicolumn{9}{c|}{\textbf{Epocas}}                                                                                                                                                                                                                                                                      \\ \cline{2-10} 
+    \multicolumn{1}{|c|}{}                                 & \multicolumn{3}{l|}{\textbf{En línea}}                                                                   & \multicolumn{3}{l|}{\textbf{Batch (4)}}                                                                  & \multicolumn{3}{l|}{\textbf{Batch (2)}}                                             \\ \cline{2-10} 
+    \multicolumn{1}{|c|}{}                                 & \multicolumn{1}{l|}{\textbf{And}} & \multicolumn{1}{l|}{\textbf{Or}} & \multicolumn{1}{l|}{\textbf{Xor}} & \multicolumn{1}{l|}{\textbf{And}} & \multicolumn{1}{l|}{\textbf{Or}} & \multicolumn{1}{l|}{\textbf{Xor}} & \multicolumn{1}{l|}{\textbf{And}} & \multicolumn{1}{l|}{\textbf{Or}} & \textbf{Xor} \\ \hline
+    0.1                                                    & \multicolumn{1}{l|}{13253}        & \multicolumn{1}{l|}{11276}       & \multicolumn{1}{l|}{22990}        & \multicolumn{1}{l|}{25183}        & \multicolumn{1}{l|}{36909}       & \multicolumn{1}{l|}{más de 50000} & \multicolumn{1}{l|}{14884}        & \multicolumn{1}{l|}{22248}       & más de 50000 \\ \hline
+    0.5                                                    & \multicolumn{1}{l|}{1342}         & \multicolumn{1}{l|}{1666}        & \multicolumn{1}{l|}{6592}         & \multicolumn{1}{l|}{5386}         & \multicolumn{1}{l|}{6992}        & \multicolumn{1}{l|}{19240}        & \multicolumn{1}{l|}{5330}         & \multicolumn{1}{l|}{4383}        & 10893        \\ \hline
+    1                                                      & \multicolumn{1}{l|}{672}          & \multicolumn{1}{l|}{1141}        & \multicolumn{1}{l|}{3332}         & \multicolumn{1}{l|}{5313}         & \multicolumn{1}{l|}{4403}        & \multicolumn{1}{l|}{10176}        & \multicolumn{1}{l|}{1460}         & \multicolumn{1}{l|}{2308}        & 4610         \\ \hline
+    2                                                      & \multicolumn{1}{l|}{638}          & \multicolumn{1}{l|}{465}         & \multicolumn{1}{l|}{1518}         & \multicolumn{1}{l|}{2648}         & \multicolumn{1}{l|}{1896}        & \multicolumn{1}{l|}{4608}         & \multicolumn{1}{l|}{638}          & \multicolumn{1}{l|}{944}         & 4762         \\ \hline
+    3                                                      & \multicolumn{1}{l|}{382}          & \multicolumn{1}{l|}{386}         & \multicolumn{1}{l|}{más de 50000} & \multicolumn{1}{l|}{905}          & \multicolumn{1}{l|}{1486}        & \multicolumn{1}{l|}{5237}         & \multicolumn{1}{l|}{875}          & \multicolumn{1}{l|}{613}         & 1560         \\ \hline
+    4                                                      & \multicolumn{1}{l|}{152}          & \multicolumn{1}{l|}{283}         & \multicolumn{1}{l|}{más de 50000} & \multicolumn{1}{l|}{1327}         & \multicolumn{1}{l|}{1101}        & \multicolumn{1}{l|}{2520}         & \multicolumn{1}{l|}{325}          & \multicolumn{1}{l|}{552}         & 1678         \\ \hline
+    5                                                      & \multicolumn{1}{l|}{241}          & \multicolumn{1}{l|}{226}         & \multicolumn{1}{l|}{más de 50000} & \multicolumn{1}{l|}{1063}         & \multicolumn{1}{l|}{884}         & \multicolumn{1}{l|}{1838}         & \multicolumn{1}{l|}{297}          & \multicolumn{1}{l|}{398}         & 942          \\ \hline
+    \end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=17cm,height=12cm]{Training Batch 1 Orden 1.png}
+    \caption{Entrenamiento de las redes con batch 1 (De arriba a abajo: And,Or,Xor)}
+    \label{fig:TrainBatch1_Order1}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=17cm,height=20cm]{Training Batch 4 Orden 1.png}
+    \caption{Entrenamiento de las redes con batch 4 (De arriba a abajo: And,Or,Xor)}
+    \label{fig:TrainBatch4_Order1}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=17cm,height=20cm]{Training Batch 2 Orden 1.png}
+    \caption{Entrenamiento de las redes con batch 2 (De arriba a abajo: And,Or,Xor)}
+    \label{fig:TrainBatch2_Order1}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%                            Orden 2                             %%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Orden 2}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|ll|l|l|l|}
+    \hline
+    \multicolumn{2}{|c|}{\textbf{In}} & \multicolumn{1}{c|}{\textbf{And}} & \multicolumn{1}{c|}{\textbf{Or}} & \multicolumn{1}{c|}{\textbf{Xor}} \\ \hline
+    \multicolumn{1}{|l|}{1}    & 1    & 1                                 & 1                                & 0                                 \\ \hline
+    \multicolumn{1}{|l|}{1}    & 0    & 0                                 & 1                                & 1                                 \\ \hline
+    \multicolumn{1}{|l|}{0}    & 1    & 0                                 & 1                                & 1                                 \\ \hline
+    \multicolumn{1}{|l|}{0}    & 0    & 0                                 & 0                                & 0                                 \\ \hline
+    \end{tabular}
+\end{table}
+El entrenamiento de la red se realizó con los siguientes resultados:
+\begin{table}[H]
+    \begin{tabular}{|l|lllllllll|}
+    \hline
+    \multicolumn{1}{|c|}{\multirow{3}{*}{\textbf{$\eta$}}} & \multicolumn{9}{c|}{\textbf{Epocas}}                                                                                                                                                                                                                                                                      \\ \cline{2-10} 
+    \multicolumn{1}{|c|}{}                                 & \multicolumn{3}{l|}{\textbf{En línea}}                                                                   & \multicolumn{3}{l|}{\textbf{Batch (4)}}                                                                  & \multicolumn{3}{l|}{\textbf{Batch (2)}}                                             \\ \cline{2-10} 
+    \multicolumn{1}{|c|}{}                                 & \multicolumn{1}{l|}{\textbf{And}} & \multicolumn{1}{l|}{\textbf{Or}} & \multicolumn{1}{l|}{\textbf{Xor}} & \multicolumn{1}{l|}{\textbf{And}} & \multicolumn{1}{l|}{\textbf{Or}} & \multicolumn{1}{l|}{\textbf{Xor}} & \multicolumn{1}{l|}{\textbf{And}} & \multicolumn{1}{l|}{\textbf{Or}} & \textbf{Xor} \\ \hline
+    0.1                                                    & \multicolumn{1}{l|}{6620}         & \multicolumn{1}{l|}{10204}       & \multicolumn{1}{l|}{24852}        & \multicolumn{1}{l|}{45865}        & \multicolumn{1}{l|}{46051}       & \multicolumn{1}{l|}{más de 50000} & \multicolumn{1}{l|}{26595}        & \multicolumn{1}{l|}{22632}       & más de 50000 \\ \hline
+    0.5                                                    & \multicolumn{1}{l|}{1433}         & \multicolumn{1}{l|}{2249}        & \multicolumn{1}{l|}{6338}         & \multicolumn{1}{l|}{5284}         & \multicolumn{1}{l|}{8779}        & \multicolumn{1}{l|}{más de 50000} & \multicolumn{1}{l|}{3123}         & \multicolumn{1}{l|}{4169}        & 17154        \\ \hline
+    1                                                      & \multicolumn{1}{l|}{1307}         & \multicolumn{1}{l|}{1160}        & \multicolumn{1}{l|}{2764}         & \multicolumn{1}{l|}{5304}         & \multicolumn{1}{l|}{4550}        & \multicolumn{1}{l|}{9750}         & \multicolumn{1}{l|}{2644}         & \multicolumn{1}{l|}{2232}        & 4943         \\ \hline
+    2                                                      & \multicolumn{1}{l|}{312}          & \multicolumn{1}{l|}{523}         & \multicolumn{1}{l|}{1718}         & \multicolumn{1}{l|}{1354}         & \multicolumn{1}{l|}{2177}        & \multicolumn{1}{l|}{5330}         & \multicolumn{1}{l|}{1245}         & \multicolumn{1}{l|}{1127}        & 7881         \\ \hline
+    3                                                      & \multicolumn{1}{l|}{216}          & \multicolumn{1}{l|}{317}         & \multicolumn{1}{l|}{851}          & \multicolumn{1}{l|}{1770}         & \multicolumn{1}{l|}{1523}        & \multicolumn{1}{l|}{2948}         & \multicolumn{1}{l|}{879}          & \multicolumn{1}{l|}{688}         & 1694         \\ \hline
+    4                                                      & \multicolumn{1}{l|}{170}          & \multicolumn{1}{l|}{289}         & \multicolumn{1}{l|}{más de 50000} & \multicolumn{1}{l|}{1325}         & \multicolumn{1}{l|}{974}         & \multicolumn{1}{l|}{más de 50000} & \multicolumn{1}{l|}{318}          & \multicolumn{1}{l|}{540}         & 1272         \\ \hline
+    5                                                      & \multicolumn{1}{l|}{134}          & \multicolumn{1}{l|}{194}         & \multicolumn{1}{l|}{más de 50000} & \multicolumn{1}{l|}{1062}         & \multicolumn{1}{l|}{824}         & \multicolumn{1}{l|}{1782}         & \multicolumn{1}{l|}{364}          & \multicolumn{1}{l|}{415}         & más de 50000 \\ \hline
+    \end{tabular}
+\end{table}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=17cm,height=13cm]{Training Batch 1 Orden 2.png}
+    \caption{Entrenamiento de las redes con batch 1 (De arriba a abajo: And,Or,Xor)}
+    \label{fig:TrainBatch1_Order2}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=17cm,height=20cm]{Training Batch 4 Orden 2.png}
+    \caption{Entrenamiento de las redes con batch 4 (De arriba a abajo: And,Or,Xor)}
+    \label{fig:TrainBatch4_Order2}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=17cm,height=20cm]{Training Batch 2 Orden 2.png}
+    \caption{Entrenamiento de las redes con batch 2 (De arriba a abajo: And,Or,Xor)}
+    \label{fig:TrainBatch2_Order2}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%                            Orden 3                             %%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Orden 3}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|ll|l|l|l|}
+    \hline
+    \multicolumn{2}{|c|}{\textbf{In}} & \multicolumn{1}{c|}{\textbf{And}} & \multicolumn{1}{c|}{\textbf{Or}} & \multicolumn{1}{c|}{\textbf{Xor}} \\ \hline
+    \multicolumn{1}{|l|}{0}    & 0    & 0                                 & 0                                & 0                                 \\ \hline
+    \multicolumn{1}{|l|}{1}    & 1    & 1                                 & 1                                & 0                                 \\ \hline
+    \multicolumn{1}{|l|}{0}    & 1    & 0                                 & 1                                & 1                                 \\ \hline
+    \multicolumn{1}{|l|}{1}    & 0    & 0                                 & 1                                & 1                                 \\ \hline
+    \end{tabular}
+\end{table}
+El entrenamiento de la red se realizó con los siguientes resultados:
+\begin{table}[H]
+    \begin{tabular}{|l|lllllllll|}
+    \hline
+    \multicolumn{1}{|c|}{\multirow{3}{*}{\textbf{$\eta$}}} & \multicolumn{9}{c|}{\textbf{Epocas}}                                                                                                                                                                                                                                                                      \\ \cline{2-10} 
+    \multicolumn{1}{|c|}{}                                 & \multicolumn{3}{l|}{\textbf{En línea}}                                                                   & \multicolumn{3}{l|}{\textbf{Batch (4)}}                                                                  & \multicolumn{3}{l|}{\textbf{Batch (2)}}                                             \\ \cline{2-10} 
+    \multicolumn{1}{|c|}{}                                 & \multicolumn{1}{l|}{\textbf{And}} & \multicolumn{1}{l|}{\textbf{Or}} & \multicolumn{1}{l|}{\textbf{Xor}} & \multicolumn{1}{l|}{\textbf{And}} & \multicolumn{1}{l|}{\textbf{Or}} & \multicolumn{1}{l|}{\textbf{Xor}} & \multicolumn{1}{l|}{\textbf{And}} & \multicolumn{1}{l|}{\textbf{Or}} & \textbf{Xor} \\ \hline
+    0.1                                                    & \multicolumn{1}{l|}{13302}        & \multicolumn{1}{l|}{10281}       & \multicolumn{1}{l|}{37423}        & \multicolumn{1}{l|}{27350}        & \multicolumn{1}{l|}{45932}       & \multicolumn{1}{l|}{más de 50000} & \multicolumn{1}{l|}{26483}        & \multicolumn{1}{l|}{22010}       & más de 50000 \\ \hline
+    0.5                                                    & \multicolumn{1}{l|}{1416}         & \multicolumn{1}{l|}{2176}        & \multicolumn{1}{l|}{4403}         & \multicolumn{1}{l|}{10607}        & \multicolumn{1}{l|}{7013}        & \multicolumn{1}{l|}{23004}        & \multicolumn{1}{l|}{5288}         & \multicolumn{1}{l|}{3889}        & 21725        \\ \hline
+    1                                                      & \multicolumn{1}{l|}{727}          & \multicolumn{1}{l|}{1117}        & \multicolumn{1}{l|}{2647}         & \multicolumn{1}{l|}{5298}         & \multicolumn{1}{l|}{4066}        & \multicolumn{1}{l|}{9516}         & \multicolumn{1}{l|}{1332}         & \multicolumn{1}{l|}{2243}        & 7101         \\ \hline
+    2                                                      & \multicolumn{1}{l|}{335}          & \multicolumn{1}{l|}{531}         & \multicolumn{1}{l|}{1262}         & \multicolumn{1}{l|}{2659}         & \multicolumn{1}{l|}{2238}        & \multicolumn{1}{l|}{más de 50000} & \multicolumn{1}{l|}{1302}         & \multicolumn{1}{l|}{1119}        & 2207         \\ \hline
+    3                                                      & \multicolumn{1}{l|}{217}          & \multicolumn{1}{l|}{353}         & \multicolumn{1}{l|}{801}          & \multicolumn{1}{l|}{962}          & \multicolumn{1}{l|}{1545}        & \multicolumn{1}{l|}{más de 50000} & \multicolumn{1}{l|}{860}          & \multicolumn{1}{l|}{767}         & 2055         \\ \hline
+    4                                                      & \multicolumn{1}{l|}{309}          & \multicolumn{1}{l|}{250}         & \multicolumn{1}{l|}{más de 50000} & \multicolumn{1}{l|}{1297}         & \multicolumn{1}{l|}{909}         & \multicolumn{1}{l|}{2321}         & \multicolumn{1}{l|}{328}          & \multicolumn{1}{l|}{432}         & 1654         \\ \hline
+    5                                                      & \multicolumn{1}{l|}{244}          & \multicolumn{1}{l|}{221}         & \multicolumn{1}{l|}{más de 50000} & \multicolumn{1}{l|}{652}          & \multicolumn{1}{l|}{872}         & \multicolumn{1}{l|}{1765}         & \multicolumn{1}{l|}{260}          & \multicolumn{1}{l|}{446}         & más de 50000 \\ \hline
+    \end{tabular}
+    \end{table}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=17cm,height=13cm]{Training Batch 1 Orden 3.png}
+    \caption{Entrenamiento de las redes con batch 1 (De arriba a abajo: And,Or,Xor)}
+    \label{fig:TrainBatch1_Order3}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=17cm,height=20cm]{Training Batch 4 Orden 3.png}
+    \caption{Entrenamiento de las redes con batch 4 (De arriba a abajo: And,Or,Xor)}
+    \label{fig:TrainBatch4_Order3}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=17cm,height=20cm]{Training Batch 2 Orden 3.png}
+    \caption{Entrenamiento de las redes con batch 2 (De arriba a abajo: And,Or,Xor)}
+    \label{fig:TrainBatch2_Order3}
+\end{figure}
